@@ -1,0 +1,79 @@
+i=0  # 123
+j=0  // 234
+k=0  /// 135
+id=10
+
+#10 02==50 02
+
+while [ $i -le 3 ]
+do
+	j=0
+	while [ $j -le 2 ]
+	do
+		k=0
+		while [ $k -le 2 ]
+		do
+			$id 03== ? : 
+			#10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+			Sleep(0.1)
+			id++
+			k++
+		done
+		j++
+	done
+	i++
+done
+
+
+CreateMessage(0x500, 8, [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88])
+StartMessage(0x500, 0.1)
+Sleep(1)
+
+SetMessage(0x500, [0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0])
+Sleep(1)
+StopMessage(0x500)
+SendMessage(0x555, 8, [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88])
+
+
+10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+27 05==67 05( [0-9A-Fa-f]{2}){3} ? Log("Test OK") -Seed : Log("Test Fail")
+27 06 Key(3)==67 06 ? Log("Test OK") : Log("Test Fail")
+
+11 01==51 01 ? Log("Test OK") : Log("Test Fail")
+Sleep(1.1)
+FUN 14 FF FF FF==54 ? Log("Test OK") : Log("Test Fail")
+
+
+
+19 02 2F==59 02( [0-9A-Fa-f]{2})+ ? Log("Test OK") : Log("Test Fail")
+
+# 19 02 2F==59 02( [0-9A-Fa-f]{2})(( [0-9A-Fa-f]{2}){4})*( 16 08 00 26)(( [0-9A-Fa-f]{2}){4})* ? Log("Test OK") : Log("Test Fail")
+
+
+19 04 16 08 00 FF==59 04( [0-9A-Fa-f]{2})+ ? Log("Test OK") : Log("Test Fail")
+19 06 16 08 00 FF==59 06( [0-9A-Fa-f]{2})+ ? Log("Test OK") : Log("Test Fail")
+19 0A==59 0A( [0-9A-Fa-f]{2})+ ? Log("Test OK") : Log("Test Fail")
+
+
+22 F1 8C==62 F1 8C( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+
+10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+27 05==67 05( [0-9A-Fa-f]{2}){3} ? Log("Test OK") -Seed : Log("Test Fail")
+27 06 Key(3)==67 06 ? Log("Test OK") : Log("Test Fail")
+
+27 07==67 07( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+27 08 87 65 43 21==67 08 ? Log("Test OK") : Log("Test Fail")
+2E F1 8C 20 20 09 16==6E F1 8C ? Log("Test OK") : Log("Test Fail")
+
+10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+28 00 01==7F 28 11 ? Log("Test OK") : Log("Test Fail")
+28 03 01==7F 28 11 ? Log("Test OK") : Log("Test Fail")
+
+3E 00==7E 00 ? Log("Test OK") : Log("Test Fail")
+3E 80== ? Log("Test OK") : Log("Test Fail")
+
+10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+85 01==7F 85 11 ? Log("Test OK") : Log("Test Fail")
+85 02==7F 85 11 ? Log("Test OK") : Log("Test Fail")
+
+
