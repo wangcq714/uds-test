@@ -3,28 +3,97 @@ j=0  // 234
 k=0  /// 135
 id=10
 
-#10 02==50 02
 
-while [ $i -le 3 ]
+echo "-------------------------------Test "if...elif...else...fi"------------------------------------"
+:<<EOF
+# le lt ge gt eq ne
+if [ $i -le 3 ]; then
+	echo "test i<3"
+	if [ $i -le 2 ]; then
+		echo "test i<2";echo "Test 12"
+	elif [ $i -le 1 ]; then
+		echo "test i<1"
+	elif [ $i -le 0 ]; then
+		echo "test i<0"
+	else
+		echo "test i<0";echo "Test 123"
+	fi
+elif [ $i -le 5 ]; then
+	echo "test 3=<i<5"
+elif [ $i -le 8 ]; then
+	echo "test 5=<i<8"
+else
+	echo "test i>=8"
+fi
+EOF
+
+if (($i < 3)); then
+	echo "test i<3"
+	if (($i < 2)); then
+		echo "test i<2";echo "Test 12"
+	elif (($i < 1)); then
+		echo "test i<1"
+	elif (($i < 0)); then
+		echo "test i<0"
+	else
+		echo "test i<0";echo "Test 123"
+	fi
+elif (($i < 5)); then
+	echo "test 3=<i<5"
+elif (($i < 8)); then
+	echo "test 5=<i<8"
+else
+	echo "test i>=8"
+fi
+
+echo "-------------------------------Test "while do...done"-------------------------------------------"
+:<<EOF
+while [ $i -lt 3 ]
 do
-	j=0
-	while [ $j -le 2 ]
+	j=3
+    
+	while [ $j -gt 0 ]
 	do
 		k=0
-		while [ $k -le 2 ]
+		while [ $k -lt 2 ]
 		do
-			$id 03== ? : 
-			#10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
-			Sleep(0.1)
+			# $id 03== ? : 
+			# 10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+			# Sleep(0.1)
+			echo "Test while"
+			
+			id++
+			k+=1
+		done
+		j--
+	done
+	i=i+1
+done
+EOF
+
+while (($i < 3))
+do
+	j=3
+    
+	while (($j > 0))
+	do
+		k=0
+		while (($k < 2))
+		do
+			# $id 03== ? : 
+			# 10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
+			# Sleep(0.1)
+			echo "Test while"
+			
 			id++
 			k++
 		done
-		j++
+		j--
 	done
 	i++
 done
 
-
+:<<EOF
 CreateMessage(0x500, 8, [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88])
 StartMessage(0x500, 0.1)
 Sleep(1)
@@ -33,7 +102,11 @@ SetMessage(0x500, [0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xF0])
 Sleep(1)
 StopMessage(0x500)
 SendMessage(0x555, 8, [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88])
+EOF
 
+CreateMessage(0x522, 8, [0x22, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF])
+StartMessage(0x522, 0.5)
+Sleep(1)
 
 10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
 27 05==67 05( [0-9A-Fa-f]{2}){3} ? Log("Test OK") -Seed : Log("Test Fail")
@@ -74,6 +147,7 @@ FUN 14 FF FF FF==54 ? Log("Test OK") : Log("Test Fail")
 
 10 03==50 03( [0-9A-Fa-f]{2}){4} ? Log("Test OK") : Log("Test Fail")
 85 01==7F 85 11 ? Log("Test OK") : Log("Test Fail")
-85 02==7F 85 11 ? Log("Test OK") : Log("Test Fail")
+85 02==7F 85 12 ? Log("Test OK") : Log("Test Fail")
+
 
 

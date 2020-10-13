@@ -1,0 +1,25 @@
+
+
+CreateMessage(0x522, 8, [0x22, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF])
+StartMessage(0x522, 0.5)
+Sleep(1)
+
+i=0
+
+FUN 14 FF FF FF==54 ? Log("Test OK") : Log("Test Fail")
+
+while [ $i -le 1 ]
+do
+	22 EE 14== ? :
+	Sleep(3)
+	19 02 2F==59 02( [0-9A-Fa-f]{2})(( [0-9A-Fa-f]{2}){4})*( 05 62 00 [0-9A-Fa-f]{2})(( [0-9A-Fa-f]{2}){4})* ? Log("Test OK") : Log("Test Fail")
+	Sleep(3)
+done
+
+
+
+
+
+
+
+
